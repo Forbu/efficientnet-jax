@@ -8,7 +8,7 @@ from jax import random
 import jax.numpy as jnp
 
 import flax.linen as nn
-from flax.nn import make_rng
+from flax.linen import make_rng
 
 
 PRNGKey = Any
