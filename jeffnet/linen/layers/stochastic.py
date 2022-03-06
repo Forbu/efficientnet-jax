@@ -8,7 +8,6 @@ from jax import random
 import jax.numpy as jnp
 
 import flax.linen as nn
-from flax.linen import make_rng
 
 
 PRNGKey = Any
@@ -55,7 +54,8 @@ def drop_path(x: jnp.array, drop_rate: float = 0., rng=None) -> jnp.array:
         return x
     keep_prob = 1. - drop_rate
     if rng is None:
-        rng = make_rng()
+        #rng = make_rng()
+        raise("error make rng")
     mask = random.bernoulli(key=rng, p=keep_prob, shape=(x.shape[0], 1, 1, 1))
     mask = jnp.broadcast_to(mask, x.shape)
     return lax.select(mask, x / keep_prob, jnp.zeros_like(x))
