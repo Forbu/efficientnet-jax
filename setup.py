@@ -16,7 +16,6 @@ setup(
     description = ("Fork of the rwightman efficientnet flax"),
     license = "?",
     packages=find_packages(),
-    package_dir={'': "jeffnet"},
     keywords = "Timm for flax",
     long_description=read('README.md'),
 )
